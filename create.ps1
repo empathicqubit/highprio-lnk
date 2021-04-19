@@ -122,6 +122,8 @@ Function Prompt-SteamGame() {
         }
     }
 
+    $appManifests = $appManifests | sort {$_.name}
+
     $idx = Create-Menu -MenuTitle "Select a game" -MenuOptions ($appManifests | % {$_.name} )
     $appManifest = $appManifests[$idx]
     $installDir = "$(Split-Path $appManifest.path)/common/$($appManifest.installdir)"
