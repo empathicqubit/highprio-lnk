@@ -1,0 +1,1 @@
+powershell.exe -NoExit "%~dp0\create.ps1" "%1"
