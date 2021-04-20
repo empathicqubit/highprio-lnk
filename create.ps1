@@ -92,6 +92,7 @@ Function From-FileName() {
     $lnkName = if($GameName) { $GameName } else { Split-Path -Leaf $FileName }
     $WshShell = New-Object -comObject WScript.Shell
     $Shortcut = $WshShell.CreateShortcut("$PSScriptRoot\$lnkName.lnk")
+    $Shortcut.WorkingDirectory = Split-Path $FileName
     $Shortcut.IconLocation = $FileName
     $Shortcut.TargetPath = 'cmd.exe'
     $Shortcut.Arguments = '/c start "" /b /high "'+$FileName+'"'
